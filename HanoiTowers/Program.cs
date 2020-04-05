@@ -10,12 +10,18 @@ namespace HanoiTowers
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            Hanoi(5, 'A', 'B', 'C');
+            Console.ReadLine();
+        }
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+        private static void Hanoi(int n, char A, char B, char C)
+        {
+            if (n > 0)
+            {
+                Hanoi(n - 1, A, C, B);
+                Console.WriteLine($"{A}->{B}");
+                Hanoi(n - 1, B, A, C);
+            }
         }
     }
 }
